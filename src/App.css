@@ -67,6 +67,10 @@ img {
   display: inline-block;
 }
 
+a:hover {
+  transition: ease-in-out 0.2s;
+  opacity: 0.3;
+}
 
 button {
   border-radius: 8px;
@@ -663,7 +667,7 @@ button {
 }
 
 .work_main {
-  margin-top: 70px;
+  margin-top: 66px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -839,6 +843,10 @@ button {
 
   .about_main {
     padding: 0 20px;
+  }
+
+  .section_2_height {
+    height: 100%;
   }
 
   .row_about {

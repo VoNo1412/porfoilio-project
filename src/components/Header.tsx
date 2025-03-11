@@ -1,12 +1,27 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [open, setOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
+
     const handleOpenNav = () => {
-        setOpen(!open)
-    }
+        setOpen(!open);
+    };
+
+    const handleClickOutside = (event: MouseEvent) => {
+        if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+            setOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     return (
         <header className="header">
@@ -15,7 +30,7 @@ const Header = () => {
                     <a href="/*">VoNo</a>
                 </h1>
             </div>
-            <nav className="nav">
+            <nav className="nav" ref={menuRef}>
                 <ul className={open ? 'active' : ''}>
                     <li><Link to="*">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
@@ -33,6 +48,6 @@ const Header = () => {
                 variant="secondary">Open</Button>
         </header>
     );
-}
+};
 
 export default Header;

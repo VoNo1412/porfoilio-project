@@ -736,6 +736,7 @@ button {
     top: 10px;
     background-color: transparent;
     background-image: none;
+    display: block;
   }
 
   .x_mobile:focus {

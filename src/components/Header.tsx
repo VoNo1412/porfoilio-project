@@ -27,12 +27,12 @@ const Header = () => {
         <header className="header">
             <div className="logo">
                 <h1 className='font-bold'>
-                    <a href="/*">VoNo</a>
+                    <a href="/">VoNo</a>
                 </h1>
             </div>
             <nav className="nav" ref={menuRef}>
                 <ul className={open ? 'active' : ''}>
-                    <li><Link to="*">Home</Link></li>
+                    <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/works">Works</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
